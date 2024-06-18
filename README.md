@@ -35,7 +35,7 @@ npm run prod
 
 <b>3.3. Using Docker:</b>
 
-- ==Note: This will run shell script files in the `scripts` directory==
+- Note: This will run shell script files in the `scripts` directory
 
 Build Docker image:
 
