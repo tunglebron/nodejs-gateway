@@ -1,5 +1,5 @@
 import { Response, Request, NextFunction } from "express"
-import { getServiceRegistry } from "../utils/file"
+import { getServiceRegistry } from "../service/registration.service"
 
 export const requestMapping = async (
 	req: Request,

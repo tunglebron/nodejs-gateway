@@ -57,3 +57,8 @@ npm run start-docker-container
 
 - Updated: `17 Jun 2024`
 - Support `proxy` and `api` configuration
+
+#### v1.0.1
+
+- Updated: `21 Jun 2024`
+- Update registration API: update, remove, delete

@@ -2,6 +2,7 @@ import needle from "needle"
 import { Request, Response, NextFunction } from "express"
 import { needleCallBack } from "../utils/needle"
 import { createProxy } from "../utils/proxy"
+import { REQUEST_TYPE } from "../config"
 
 export const forwardRequests = async (
 	req: Request,
@@ -22,10 +23,13 @@ export const forwardRequests = async (
 		requestType,
 		requestUrl,
 	}: { requestType: string; requestUrl: string } = res.locals.customRequest
-	if (requestType === "proxy") {
+	if (requestType == REQUEST_TYPE.proxy) {
 		createProxy(requestUrl)(req, res, next)
-	} else if (requestType === "api") {
-		const url = requestUrl + (req.params.path ? req.params.path : "")
+	} else if (requestType == REQUEST_TYPE.api) {
+		const url =
+			requestUrl +
+			(req.params.path ? req.params.path : "") +
+			(req.query ? req.query : "")
 		switch (req.method.toLowerCase()) {
 			case "get":
 				needle.get(url, handleResponse)

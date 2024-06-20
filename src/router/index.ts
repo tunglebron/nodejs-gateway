@@ -4,11 +4,20 @@ import { requestMapping } from "../middleware/request-mapping.middleware"
 import { handleServerError } from "../middleware/error-handler.middleware"
 import { forwardRequests } from "../middleware/request-forwarding.middleware"
 import { authenticate } from "../middleware/authentication.middleware"
-import { registerController } from "../controller/registration.controller"
+import {
+	modifyRegistryController,
+	registerController,
+	unregisterController,
+} from "../controller/registration.controller"
+import { REGISTRATION_SERVICE_PATH } from "../config"
 
 const router: Router = Router()
 
-router.post("/register", registerController)
+router.post(REGISTRATION_SERVICE_PATH, registerController)
+
+router.delete(REGISTRATION_SERVICE_PATH, unregisterController)
+
+router.put(REGISTRATION_SERVICE_PATH, modifyRegistryController)
 
 router.use(
 	"/:apiName",

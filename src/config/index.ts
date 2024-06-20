@@ -13,3 +13,8 @@ export const SERVICE_REGISTRY_CONFIG_FILE = path.join(
 	__dirname,
 	"../../config-file/registry.json",
 )
+export const REGISTRATION_SERVICE_PATH = "/registration"
+export const REQUEST_TYPE = {
+	proxy: "proxy",
+	api: "api",
+}
